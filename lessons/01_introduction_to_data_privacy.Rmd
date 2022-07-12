@@ -1,0 +1,538 @@
+---
+title: ""
+author: ""
+output:
+  html_document:
+    number_sections: false #changed from template
+    self_contained: TRUE
+    code_folding: hide
+    toc: TRUE
+    toc_float: TRUE
+    css: !expr here::here("www", "web_report.css")
+editor_options:
+  chunk_output_type: console
+bibliography: references.bib
+---
+
+
+```{r rmarkdown-setup, echo = FALSE}
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+```{=html}
+<style>
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+</style>
+```
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato" />
+
+```{r header-image, fig.width = 5.14, fig.height = 1.46, echo = FALSE, warning = FALSE, message = FALSE}
+
+# All defaults
+knitr::include_graphics(here::here("www", "images", "urban-institute-logo.png"))
+
+```
+
+# Lesson 1: Intro to Data Privacy and Data Synthesis
+
+#### March 15, 2022
+
+```{r setup}
+options(scipen = 999)
+library(tidyverse)
+library(palmerpenguins)
+library(kableExtra)
+library(gt)
+
+
+# Helper function to create nice gt tables
+create_table <- function(data_df, 
+                         rowname_col = NA,
+                         fig_num = "",
+                         title_text = ""){
+  # random_id = random_id(n=10)
+  random_id = "urban_table"
+  
+  basic_table = data_df %>% 
+    gt(id = random_id, rowname_col = rowname_col) %>% 
+    tab_options(#table.width = px(760),
+                table.align = "left", 
+                heading.align = "left",
+                # TODO: Discuss with Comms whether border should extend across 
+                # whole row at bottom or just across data cells
+                table.border.top.style = "hidden",
+                table.border.bottom.style = "transparent",
+                heading.border.bottom.style = "hidden",
+                # Need to set this to transparent so that cells_borders of the cells can display properly and 
+                table_body.border.bottom.style = "transparent",
+                table_body.border.top.style = "transparent",
+                # column_labels.border.bottom.style = "transparent",
+                column_labels.border.bottom.width = px(1),
+                column_labels.border.bottom.color = "black",
+                # row_group.border.top.style = "hidden",
+                # Set font sizes
+                heading.title.font.size = px(13),
+                heading.subtitle.font.size = px(13),
+                column_labels.font.size = px(13),
+                table.font.size = px(13),
+                source_notes.font.size = px(13),
+                footnotes.font.size = px(13),
+                # Set row group label and border options
+                row_group.font.size = px(13),
+                row_group.border.top.style = "transparent",
+                row_group.border.bottom.style = "hidden",
+                stub.border.style = "dashed",
+                ) %>% 
+    tab_header(
+      title = fig_num,# "eyebrow",
+      subtitle = title_text) %>%  #"Top 10 Banks (by Dollar Volume) for Community Development Lending") %>% 
+    # Bold title, subtitle, and columns
+    tab_style(
+      style = cell_text(color = "black", weight = "bold", align = "left"),
+      locations = cells_title("subtitle")
+    ) %>% 
+    tab_style(
+      style = cell_text(color = "#696969", weight = "normal", align = "left", transform = "uppercase"),
+      locations = cells_title("title")
+    ) %>% 
+    tab_style(
+      style = cell_text(color = "black", weight = "bold", size = px(13)),
+      locations = cells_column_labels(gt::everything())
+    ) %>% 
+    # Italicize row group and column spanner text
+    tab_style(
+      style = cell_text(color = "black", style = "italic", size  = px(13)),
+      locations = gt::cells_row_groups()
+    ) %>% 
+    tab_style(
+      style = cell_text(color = "black", style = "italic", size  = px(13)),
+      locations = gt::cells_column_spanners()
+    ) %>% 
+    opt_table_font(
+        font = list(
+          google_font("Lato"),
+          default_fonts()
+        )
+      ) %>% 
+    # Adjust cell borders for all cells, small grey bottom border, no top border
+    tab_style(
+      style = list(
+        cell_borders(
+          sides = c("bottom"),
+          color = "#d2d2d2",
+          weight = px(1)
+        )
+      ),
+      locations = list(
+        cells_body(
+          columns =  gt::everything()
+          # rows = gt::everything()
+        )
+      )
+    )  %>%
+    tab_style(
+      style = list(
+        cell_borders(
+          sides = c("top"),
+          color = "#d2d2d2",
+          weight = px(0)
+        )
+      ),
+      locations = list(
+        cells_body(
+          columns =  gt::everything()
+          # rows = gt::everything()
+        )
+      )
+    )  %>%
+    # Set missing value defaults
+    fmt_missing(columns = gt::everything(), missing_text = "—") %>%
+    # Set css for all the things we can't finetune exactly in gt, mostly t/r/b/l padding
+    opt_css(
+      css = str_glue("
+      #{random_id} .gt_row {{
+        padding: 5px 5px 5px 5px;
+      }}
+      #{random_id} .gt_sourcenote {{
+        padding: 16px 0px 0px 0px;
+      }}
+      #{random_id} .gt_footnote {{
+        padding: 16px 0px 0px 0px;
+      }}
+      #{random_id} .gt_subtitle {{
+        padding: 0px 0px 2px 0px;
+      }}
+      #{random_id} .gt_col_heading {{
+        padding: 10px 5px 10px 5px;
+      }}
+      #{random_id} .gt_col_headings {{
+        padding: 0px 0px 0px 0px;
+        border-top-width: 0px;
+      }}
+      #{random_id} .gt_group_heading {{
+        padding: 15px 0px 0px 0px;
+      }}
+      #{random_id} .gt_stub {{
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: #d2d2d2;
+        border-top-color: black;
+        text-align: left;
+      }}
+      #{random_id} .gt_grand_summary_row {{
+        border-bottom-width: 1px;
+        border-top-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: #d2d2d2;
+        border-top-color: #d2d2d2;
+      }}
+      #{random_id} .gt_summary_row {{
+        border-bottom-width: 1px;
+        border-top-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: #d2d2d2;
+      }}
+      #{random_id} .gt_column_spanner {{
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }}
+      ") %>% as.character()
+    )
+  
+  return(basic_table)
+}
+```
+
+<br>
+
+# Why is Data Privacy important?
+
+-   Modern computing and technology has made collecting and processing large amounts of data easy.
+
+-   But, with that computing power, malicious actors can now easily reidentify individuals by linking supposedly anonymized records with public databases.
+
+-   This kind of attack is called a "record linkage" attack. The following are some examples of famous record linkage attacks.
+
+    -   In 1997, MA Gov. Bill Weld announced the public release of insurance data for researchers. He assured the public that PII had been deleted. A few days later Dr. Latanya Sweeney, then a MIT graduate student, mailed to Weld's office his personal medical information. She purchased voter data and linked Weld's birth date, gender and zip code to his health records. And this was back in 1997, when computing power was miniscule, and social media didn't exist!
+
+    -   A study by Dr. Latayna Sweeney based on the 1990 Census [@sweeney2000simple] found that the 87% of the US population had reported characteristics that likely made them unique based only on ZIP, gender, and date of birth.
+
+    -   In 2019, the NYT got access to a private company's database of cell phone locations. They were able to identify a Microsoft engineer who went between his house and Microsoft's Seattle campus every work day. Then one day he went into the Amazon's Seattle campus and then a month later started going into Amazon's Seattle campus every work day.
+
+        ![](images/nyt_traced.png){width="400"}
+
+-   At the same time, releasing granular data can be of immense value to researchers. For example, cell phone data are invaluable for contact tracing, and granular medical data will lead to better treatment and development of cures.
+
+    ![](images/racial_data_covid.png){width="310"}
+
+-   More granular data are also important for understanding equity, particularly for smaller populations and subgroups.
+
+<br>
+
+<br>
+
+# What is Data Privacy?
+
+-   **Data Privacy**: The right of individuals to have have control over their sensitive information.
+
+    -   There are differing notions of what should and shouldn't be private, which may include being able to opt out of privacy protections.
+
+-   Data Privacy is a broad topic, which includes data security, encryption, access to data, etc.
+
+    -   We will not be covering privacy breaches from unauthorized access to a database (i.e., hackers).
+
+    -   We are instead focused on privacy preserving access to data.
+
+-   There is also a slight difference between Privacy and Confidentiality.
+
+    -   **Privacy**: The ability "to determine what information about ourselves we will share with others" [@fellegi1972question].
+
+    -   **Confidentiality**: "the agreement, explicit or implicit, between data subject and data collector regarding the extent to which access by others to personal information is allowed" [@fienberg2018statistical].
+
+-   There is often a tension between privacy and utility of the data, known in the literature as the **privacy-utility trade-off**.
+
+    -   **Data utility**: How useful or accurate the data are for research and analysis (aka data quality/accuracy/usefulness).
+
+    -   Generally higher utility = more privacy risks and vice versa.
+
+-   In the data privacy ecosystem there are the following stakeholders:
+
+    -   **Data users**: Those who consume the data, e.g., researchers, decisionmakers, etc.
+
+    -   **Data maintainers** (aka data stewards/data owners): Those who own the data and are responsible for its safekeeping.
+
+-   In addition there are many version of the data we should define:
+
+    -   **Original dataset** - uncleaned version (raw census microdata).
+
+    -   **Confidential dataset** (aka gold standarad/actual data) - cleaned version (cleaned census microdata).
+
+    -   **Public dataset** - publicly released version (Census' public tables/datasets).
+
+<br>
+
+<br>
+
+# Data Privacy Workflow
+
+-   Data users have traditionally gotten access to data via:
+
+    a)  direct access to the confidential data if they are trusted users (e.g., Census Research Data Centers).
+
+    b)  access to the public data/statistics (microdata, summary tables, or statistics) produced by data maintainers. This is how most people access the data, and what we'll focus on.
+
+-   Data maintainers have relied on Statistical Disclosure Control (SDC) methods to preserve data confidentiality when releasing public data.
+
+-   Generally releasing confidential data involves the following steps to protect privacy:
+
+    ![](images/data_privacy_workflow.png){width="518"}
+
+<br>
+
+<br>
+
+# Exercise 1 {.tabset .tabset-pills}
+
+## Question
+
+Fill in the grey and green blanks in the following diagram with the terms you learned above. There's also 1 mistake, see if you can spot it.
+
+![](images/data_user_maintainer_overview_blank.png){width="544"}
+
+<br>
+
+<br>
+
+## Solution
+
+![](images/data_user_maintainer_overview.png){width="542"}
+
+<br>
+
+<br>
+
+# Overview of SDC
+
+-   **Statistical Disclosure Control (SDC)** or Statistical Disclosure Limitation (SDL) is a field of study that aims to develop methods for releasing high-quality data products while preserving the confidentiality of sensitive data.
+
+-   Have existed within statistics and the social sciences since the mid-twentieth century.
+
+-   Below is an opinionated, and incomplete overview of various SDC methods. For this set of trainings, we will focus in-depth on the methods in yellow.
+
+```{r sdc_overview_mmd, echo = FALSE, eval = T}
+
+# color code things that can be formally private
+
+DiagrammeR::mermaid("
+graph TB
+  B(SDC Methods)-->D(Synthetic Data)
+  B-->E(Suppression)
+  B-->F(Swapping)
+  B-->H(Generalization)
+  B-->I(Noise Infusion)
+  B-->J(Sampling)
+  D-->K(Partial)
+  D-->L(Full)
+  style D fill:#fdbf11;
+  style K fill:#fdbf11
+  style L fill:#fdbf11
+",
+height = 250,
+width = 800)
+```
+
+-   Definitions of a few methods we won't cover in detail. See @matthews2011data for more information.
+
+    -   **Suppression**: Not releasing data about certain subgroups.
+
+    -   **Swapping**: The exchange of sensitive values among sample units with similar characteristics.
+
+    -   **Generalization**: Aggregating variables into larger units (e.g., reporting state rather than zip code) or top/bottom coding (limiting values below/above a threshold to the threshold value).
+
+    -   **Noise Infusion**: Adding random noise, often to continuous variables which can maintain univariate distributions.
+
+    -   **Sampling**: Only releasing a sample of individual records.
+
+-   Problem with the above approaches is that it really limits the utility of the data.
+
+    -   Mitra and Reiter (2006) found that a 5 percent swapping of 2 identifying variables in the 1987 Survey of Youth in Custody invalidated statistical hypothesis tests in regression.
+
+    -   Top/bottom coding eliminates information at the tails of the distributions, degrading analyses that depend on the entire distribution (Fuller 1993; Reiter, Wang, and Zhang, 2014).
+
+-   A newer development in the SDC field with the potential to overcome some of these problems is Synthetic Data.
+
+<br>
+
+## Synthetic Data
+
+-   **Synthetic data** replaces actual records with statistically representative pseudo-records.
+
+-   Typically generated from probability distributions, or models that are identified as being representative of the confidential data.
+
+-   Generally you can produce 2 kinds of synthetic data:
+
+    -   **Partially Synthetic**: Choosing a subset of sensitive variables to synthesize, and keeping the other non-sensitive variables the same. This means there is 1:1 mapping between actual records and the synthetic records.
+
+    -   **Fully Synthetic**: Synthesizing all variables in the data, so no confidential data are released. There is no longer a 1:1 mapping between the actual and synthetic records, but in the aggregate the synthetic dataset should be statistically representative of the actual datasets.
+
+<br>
+
+<br>
+
+# Formal Privacy
+
+-   Formal privacy centers around a formal mathematical definition of privacy that measures how much privacy leakage occurs.
+
+-   A formally private method provides mathematically provable protection to respondents and allows policy makers to manage the trade-off between data accuracy and privacy protection through tunable parameters for multiple statistics.
+
+-   Any SDC method/algorithm can be formally private if it meets the specific mathematical definition.
+
+-   Formal privacy is a definition/threshold for methods to meet, not a method in and of itself.
+
+-   Below in green are the SDC methods which have formally private versions.
+
+```{r sdc_fp_overview_mmd, echo = FALSE, eval = T}
+
+
+DiagrammeR::mermaid("
+graph TB
+  B(SDC Methods)-->D(Synthetic Data)
+  B-->E(Suppression)
+  B-->F(Swapping)
+  B-->H(Generalization)
+  B-->I(Noise Infusion)
+  B-->J(Sampling)
+  D-->K(Partial)
+  D-->L(Full)
+  style D fill:#55b748;
+  style K fill:#55b748
+  style L fill:#55b748
+  style I fill:#55b748
+
+",
+height = 250,
+width = 800)
+```
+
+-   There are two common kinds of formal privacy definitions.
+
+    a)  **Differential Privacy** (DP): A mathematical definition of what it means to have privacy. The definition has a parameter called epsilon that control how much privacy loss occurs.
+
+    b)  **Approximate Differential Privacy**: Similar to DP in the same framework, but it eases the privacy protection as less noise is added.
+
+-   Difference between traditional SDC methods and formally private SDC methods is existence of a threat model.
+
+    -   **Threat Model**: A set of assumptions for how data intruders will attack the data, including computing power, access to external data sources, etc.
+
+-   Formal privacy definitions assume the worst possible scenario, where an attacker has all the information but 1 record, has every possible version of the dataset (accounts for all future datasets), and unlimited computing power.
+
+-   Formally private methods don't label particular variables as confidential/sensitive, but instead treats them all as sensitive due to the possibility of reidentifcation.
+
+<br>
+
+<br>
+
+# Measuring Utility Metrics and Disclosure Risks
+
+## Disclosure Risks
+
+-   Generally there are 3 kinds of disclosure risk:
+
+    1.  **Identity disclosure risk**: Occurs if the intruder associates a known individual with a released data record.
+
+        ![](images/identity_disclosure_risk.png){width="344"}
+
+    2.  **Attribute disclosure risk**: Occurs if the intruder is able to determine some new characteristics of an individual based on the information available in the released data.
+
+        -   Can happen without identity disclosure, for example if a dataset shows that all people aged 50+ in a city have cancer, then an intruder knows the medical conditions all people above 50.
+
+    3.  **Inferential disclosure risk**: Occurs if the intruder is able to determine the value of some characteristic of an individual more accurately with the released data than would otherwise have been possible.
+
+        -   For example, an attacker with a highly predictive model for income, may be able to infer a respondent's sensitive income information using attributes recorded in the data (e.g., sex, age, education, industry, etc).
+
+-   Important note: acceptable disclosure risks are usually determined by law.
+
+## Utility Measures
+
+-   Generally there are 2 ways to measure utility of the data:
+
+    1.  **General Utility** (aka global utility): Measures the distributional similarity between the confidential and synthetic data. An example is summary statistics (e.g., mean, variance, skewness, etc).
+
+    2.  **Specific Utility** (aka outcome specific utility): Measures the similarity of results for specific analyses using both the confidential and synthetic data. An example is comparing coefficients in regression models.
+
+-   Higher utility = higher accuracy and usefulness of the data, so this is a key part of selecting an appropriate SDC method.
+
+<br>
+
+<br>
+
+# Exercise 2
+
+Let's say a researcher generates a synthetic version of a dataset on penguins species. The first 5 rows of the gold standard dataset looks like this:
+
+```{r}
+set.seed(125)
+
+ex_data = penguins %>% 
+  select(species, bill_length_mm, sex) %>% 
+  slice_sample(n = 5) 
+
+ex_data %>% 
+  create_table()
+```
+
+<br>
+
+One of the metrics to assess data utility was the overall counts of penguin species across the synthetic and gold standard data, which look like this:
+
+```{r}
+set.seed(124)
+
+penguins %>% 
+  count(species) %>% 
+  rowwise() %>% 
+  mutate(`# synthetic data` = rnorm(n = 1, mean= n, sd = 10) %>% round(digits = 0)) %>% 
+  rename(`# conf. data` = n) %>% 
+  create_table()
+```
+
+<br>
+
+<font color="#55b748">**Question 1:**</font> Would the above counts be considered a global utility metric or a specific utility metric and why?
+
+<font color="#55b748">**Question 2:**</font> Let's say that researchers decide that the `sex` of the penguins in the data are not confidential, but the `species` and `bill length` are. So, they develop regression models that predict `species` and `bill length` from `sex`, use those models to estimate species and bill lengths for each row in the data and then release it publicly. What specific Statistical Disclosure Control method are these researchers using?
+
+<font color="#55b748">**Question 3:**</font> Researchers [@mayer2016evaluating] looked at telephone metadata, which included times, duration and outgoing numbers of telephone calls. They found that 1 of the records in the data placed frequent calls to a local firearm dealer that prominently advertises a specialty in the AR semiautomatic rifle platform. The participant also placed lengthy calls to the customer support hotline for a major firearm manufacturer which produces a popular AR line of rifles. Using publicly available data, they were able to confirm the participants identity and confirm that he owned an AR-15. In this example what kinds of disclosures happened? (Hint: there were two!)
+
+<br>
+
+# Mandatory HW
+
+it's important that **everyone sign up for an Rstudio Cloud account and join the `allegheny-count-data-privacy-trainings` space** so that you can follow along with our code exercises. You can do that by using this link: [\<https://rstudio.cloud/spaces/\>](https://rstudio.cloud/spaces/){.uri}. You will know you've successfully joined the class space when you see the following in the top left of your Rstudio Cloud account:
+
+![](images/rstudio_cloud_space.png){width="209"}
+
+We will be using Rstudio Cloud from Session 2 onwards to do code exercises in R (or if you wish Python). You can find Intro to R and Rstudio resources [here](https://rstudio.cloud/learn/primers). You can also come to our office hours to get more information and training on R and Rstudio Cloud.
+
+<br>
+
+# Optional HW
+
+You can access the optional HW [here](). We promise this won't take more than 5 minutes and will give us valuable feedback on how we're doing.
+
+<br>
+
+# Suggested Reading
+
+-   Matthews, Gregory J., and Ofer Harel. "Data confidentiality: A review of methods for statistical disclosure limitation and methods for assessing privacy." Statistics Surveys 5 (2011): 1-29. [link](https://projecteuclid.org/journals/statistics-surveys/volume-5/issue-none/Data-confidentiality--A-review-of-methods-for-statistical-disclosure/10.1214/11-SS074.pdf)
+
+-   Bowen, CMK., 2021. "Personal Privacy and the Public Good: Balancing Data Privacy and Data Utility." Urban Institute (2021). [link](https://www.urban.org/research/publication/personal-privacy-and-public-good-balancing-data-privacy-and-data-utility)
+
+-   Benschop, T. and Welch, M. (n.d.) Statistical Disclosure Control for Microdata: A Practice Guide. Retrieved (insert date), from <https://sdcpractice.readthedocs.io/en/latest/>
+
+<br>
+
+# References

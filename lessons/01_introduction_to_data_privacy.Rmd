@@ -210,7 +210,7 @@ create_table <- function(data_df,
 
 -   Modern computing and technology has made collecting and processing large amounts of data easy.
 
--   But, with that computing power, malicious actors can now easily reidentify individuals by linking supposedly anonymized records with public databases.
+-   But, with that computing power, malicious actors can now easily re-identify individuals by linking supposedly anonymized records with public databases.
 
 -   This kind of attack is called a "record linkage" attack. The following are some examples of famous record linkage attacks.
 
@@ -266,7 +266,7 @@ create_table <- function(data_df,
 
     -   **Original dataset** - uncleaned version (raw census microdata).
 
-    -   **Confidential dataset** (aka gold standarad/actual data) - cleaned version (cleaned census microdata).
+    -   **Confidential dataset** (aka gold standard/actual data) - cleaned version (cleaned census microdata).
 
     -   **Public dataset** - publicly released version (Census' public tables/datasets).
 
@@ -509,7 +509,7 @@ penguins %>%
 
 # Interested in optional code exercises?
 
-If you want to follow along with the optional code exercises starting next week, you should **sign up for an Rstudio Cloud account and join the `allegheny-count-data-privacy-trainings` space** so that you can follow along with our code exercises. You can do that by using this link: [\<https://rstudio.cloud/spaces/\>](https://rstudio.cloud/spaces/){.uri}. You will know you've successfully joined the class space when you see the following in the top left of your Rstudio Cloud account:
+If you want to follow along with the optional code exercises starting next week, you should **sign up for an Rstudio Cloud account and join the `Allegheny-count-data-privacy-trainings` space** so that you can follow along with our code exercises. You can do that by using this link: [\<https://rstudio.cloud/spaces/\>](https://rstudio.cloud/spaces/){.uri}. You will know you've successfully joined the class space when you see the following in the top left of your Rstudio Cloud account:
 
 ![](images/rstudio_cloud_space.png){width="209"}
 

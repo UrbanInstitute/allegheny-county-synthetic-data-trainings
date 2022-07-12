@@ -509,9 +509,9 @@ penguins %>%
 
 # Interested in optional code exercises?
 
-If you want to follow along with the optional code exercises starting next week, you should **sign up for an Rstudio Cloud account and join the `Allegheny-count-data-privacy-trainings` space** so that you can follow along with our code exercises. You can do that by using this link: [\<https://rstudio.cloud/spaces/\>](https://rstudio.cloud/spaces/){.uri}. You will know you've successfully joined the class space when you see the following in the top left of your Rstudio Cloud account:
+If you want to follow along with the optional code exercises starting next week, you should **sign up for an Rstudio Cloud account and join the `Allegheny-count-data-privacy-trainings` space** so that you can follow along with our code exercises. You can do that by using [this link](https://rstudio.cloud/spaces/261189/join?access_code=dYVkt3WqVcoLNsJVuDk_ycR1hJaXZEUafvygUuCU){.uri}. You will know you've successfully joined the class space when you see the following in the top left of your Rstudio Cloud account:
 
-![](images/rstudio_cloud_space.png){width="209"}
+![](images/allegheny_county_rstudio_space.png){width="209"}
 
 You can find Intro to R and Rstudio resources [here](https://rstudio.cloud/learn/primers) if you're unfamiliar with R. There will also be support for Python if you wish to use that. But again, all the code example are optional and to be done on your own time. We will not be going over them in these trainings!
 

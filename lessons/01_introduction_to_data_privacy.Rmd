@@ -14,13 +14,11 @@ editor_options:
 bibliography: references.bib
 ---
 
-
 ```{r rmarkdown-setup, echo = FALSE}
 knitr::opts_chunk$set(warning = FALSE)
 knitr::opts_chunk$set(message = FALSE)
 knitr::opts_chunk$set(echo = FALSE)
 ```
-
 
 ```{=html}
 <style>
@@ -509,19 +507,19 @@ penguins %>%
 
 <br>
 
-# Mandatory HW
+# Interested in optional code exercises?
 
-it's important that **everyone sign up for an Rstudio Cloud account and join the `allegheny-count-data-privacy-trainings` space** so that you can follow along with our code exercises. You can do that by using this link: [\<https://rstudio.cloud/spaces/\>](https://rstudio.cloud/spaces/){.uri}. You will know you've successfully joined the class space when you see the following in the top left of your Rstudio Cloud account:
+If you want to follow along with the optional code exercises starting next week, you should **sign up for an Rstudio Cloud account and join the `allegheny-count-data-privacy-trainings` space** so that you can follow along with our code exercises. You can do that by using this link: [\<https://rstudio.cloud/spaces/\>](https://rstudio.cloud/spaces/){.uri}. You will know you've successfully joined the class space when you see the following in the top left of your Rstudio Cloud account:
 
 ![](images/rstudio_cloud_space.png){width="209"}
 
-We will be using Rstudio Cloud from Session 2 onwards to do code exercises in R (or if you wish Python). You can find Intro to R and Rstudio resources [here](https://rstudio.cloud/learn/primers). You can also come to our office hours to get more information and training on R and Rstudio Cloud.
+You can find Intro to R and Rstudio resources [here](https://rstudio.cloud/learn/primers) if you're unfamiliar with R. There will also be support for Python if you wish to use that. But again, all the code example are optional and to be done on your own time. We will not be going over them in these trainings!
 
 <br>
 
 # Optional HW
 
-You can access the optional HW [here](). We promise this won't take more than 5 minutes and will give us valuable feedback on how we're doing.
+You can access the optional HW form [here](). We promise this won't take more than 5 minutes and will give us valuable feedback on how we're doing.
 
 <br>
 

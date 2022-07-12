@@ -519,7 +519,7 @@ You can find Intro to R and Rstudio resources [here](https://rstudio.cloud/learn
 
 # Optional HW
 
-You can access the optional HW form [here](). We promise this won't take more than 5 minutes and will give us valuable feedback on how we're doing.
+You can access the optional HW form [here](https://forms.office.com/r/fEU27rUhHW). We promise this won't take more than 5 minutes and will give us valuable feedback on how we're doing.
 
 <br>
 

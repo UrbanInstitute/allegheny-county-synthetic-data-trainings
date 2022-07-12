@@ -37,14 +37,26 @@ knitr::include_graphics(here::here("www", "images", "urban-institute-logo.png"))
 
 # Introduction to Synthetic Data
 
-This 3-course training series will provide an overview ofd data privacy and synthetic data methods to protect privacy while maintaining data utility. This training cover the theory and concepts behind synthetic data and equip you with tools to apply these data privacy techniques to datasets.
+This 3-course training series will provide an overview of data privacy and synthetic data methods with the goal of protectng privacy while maintaining data utility. These trainings will cover the theory and concepts behind synthetic data and equip you with tools to apply these data privacy techniques to datasets. Specifically:
+
+- Week 1 will serve as an overview of data privacy concepts and techniques, 
+- Week 2 will cover synthetic data creation and use, and
+- Week 3 will cover evaluating synthetic data using key privacy and utility metrics.
+
+# Motivation
+
+This training series is provided in partnership with Allegheny County and the Western Pennsylvania Regional Data Center (WPRDC). While synthetic data has been used at the federal level, local governments and organizations often do not have the human or computational resources required to implement synthetic data as a privacy-preserving technique. As part of a pilot program intended to understand and target the specific privacy-related needs of local governments, the Urban Institute is offering these trainings to any local stakeholders wishing to learn more about creation, applications, and limitations of synthetic data.
+
+# Prerequisites
+
+This course assumes knowledge of general statistical concepts such as summary statistics, hypothesis testing, and basic regression and modeling. No coding background is needed, but optional coding exercises will be provided in R and Python for interested users.
 
 <br> 
 
 # Instructors and Contact Information
 
 * Ajjit Narayanan (anarayanan@urban.org)
-* Madeline Pickens, MS (mpickens@urban.org)
+* Madeline Pickens (mpickens@urban.org)
 
 <br>
 
@@ -52,6 +64,6 @@ This 3-course training series will provide an overview ofd data privacy and synt
 
 |                                                                            |
 |:---------------------------------------------------------------------------|
-| [Day 1: Intro to Data Privacy and Data Synthesis](https://ui-research.github.io/bea-data-privacy-trainings/lessons/01_introduction_to_data_privacy)                            |
-| [Day 2: Synthetic Data Methods and Case Studies](https://ui-research.github.io/bea-data-privacy-trainings/lessons/02_synthetic_data_methods)                                    |
-| [Day 3: Disclosure Risk and Utility Metrics and more Case Studies](https://ui-research.github.io/bea-data-privacy-trainings/lessons/03_disclosure_risk_utility_metrics)                  |
+| [Day 1: Intro to Data Privacy and Data Synthesis](https://ui-research.github.io/allegheny-county-synthetic-data-trainings/lessons/01_introduction_to_data_privacy)                            |
+| [Day 2: Synthetic Data Methods and Case Studies](https://ui-research.github.io/allegheny-county-synthetic-data-trainings/lessons/02_synthetic_data_methods)                                    |
+| [Day 3: Disclosure Risk and Utility Metrics and more Case Studies](https://ui-research.github.io/allegheny-county-synthetic-data-trainings/lessons/03_disclosure_risk_utility_metrics)                  |

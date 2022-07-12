@@ -1,0 +1,57 @@
+---
+title: ""
+author: ""
+output:
+  html_document:
+    number_sections: false #changed from template
+    self_contained: TRUE
+    code_folding: hide
+    toc: TRUE
+    toc_float: TRUE
+    css: !expr here::here("www", "web_report.css")
+editor_options:
+  chunk_output_type: console
+---
+
+```{r rmarkdown-setup, echo = FALSE}
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{=html}
+<style>
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+</style>
+```
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato" />
+
+```{r header-image, fig.width = 5.14, fig.height = 1.46, echo = FALSE, warning = FALSE, message = FALSE}
+
+# All defaults
+knitr::include_graphics(here::here("www", "images", "urban-institute-logo.png"))
+
+```
+
+
+
+# Introduction to Synthetic Data
+
+This 3-course training series will provide an overview ofd data privacy and synthetic data methods to protect privacy while maintaining data utility. This training cover the theory and concepts behind synthetic data and equip you with tools to apply these data privacy techniques to datasets.
+
+<br> 
+
+# Instructors and Contact Information
+
+* Ajjit Narayanan (anarayanan@urban.org)
+* Madeline Pickens, MS (mpickens@urban.org)
+
+<br>
+
+# Lesson Links
+
+| Lesson                                                                     |
+|----------------------------------------------------------------------------|
+| [Day 1: Intro to Data Privacy and Data Synthesis](https://ui-research.github.io/bea-data-privacy-trainings/lessons/01_introduction_to_data_privacy)                            |
+| [Day 2: Synthetic Data Methods and Case Studies](https://ui-research.github.io/bea-data-privacy-trainings/lessons/02_synthetic_data_methods)                                    |
+| [Day 3: Disclosure Risk and Utility Metrics and more Case Studies](https://ui-research.github.io/bea-data-privacy-trainings/lessons/03_disclosure_risk_utility_metrics)                  |

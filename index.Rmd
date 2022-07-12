@@ -50,8 +50,8 @@ This 3-course training series will provide an overview ofd data privacy and synt
 
 # Lesson Links
 
-| Lesson                                                                     |
-|----------------------------------------------------------------------------|
+|                                                                            |
+|:---------------------------------------------------------------------------|
 | [Day 1: Intro to Data Privacy and Data Synthesis](https://ui-research.github.io/bea-data-privacy-trainings/lessons/01_introduction_to_data_privacy)                            |
 | [Day 2: Synthetic Data Methods and Case Studies](https://ui-research.github.io/bea-data-privacy-trainings/lessons/02_synthetic_data_methods)                                    |
 | [Day 3: Disclosure Risk and Utility Metrics and more Case Studies](https://ui-research.github.io/bea-data-privacy-trainings/lessons/03_disclosure_risk_utility_metrics)                  |

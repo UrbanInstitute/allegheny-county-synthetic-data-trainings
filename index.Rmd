@@ -49,7 +49,7 @@ This training series is provided in partnership with Allegheny County and the We
 
 # Prerequisites
 
-This course assumes knowledge of general statistical concepts such as summary statistics, hypothesis testing, and basic regression and modeling. No coding background is needed, but optional coding exercises will be provided in R and Python for interested users.
+This course assumes some knowledge of general statistical concepts such as summary statistics and basic regression. No coding background is needed, but optional coding exercises will be provided in R and Python for interested users.
 
 <br> 
 

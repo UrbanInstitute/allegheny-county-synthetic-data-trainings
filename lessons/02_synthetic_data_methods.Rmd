@@ -35,6 +35,15 @@ knitr::include_graphics(here::here('www', 'images', 'urban-institute-logo.png'))
 ```
 
 
+# Logistics and Reminders
+
+
+- Access a recording of Lesson 1 [here](https://urbanorg.box.com/s/ug9ud42jt8xipdy5ys49npefim07lq9o).
+
+- Email Maddie Pickens (mpickens@urban.org) for lesson HTML files.
+
+- To follow along with optional code exercises, see "Exercise 3 (Optional)" for instructions on setting up an RStudio Cloud account and accessing the coding exercises (available in R and Python). This week's lesson contains dropdowns with R code for reference (click boxes labeled "Code" to view). We will not discuss these exercises or the R code in class.
+
 
 # Review of Synthetic Data
 
@@ -339,7 +348,7 @@ table %>%
 
 <br> <br>
 
-# Implicates (Bonus)
+# Implicates
 
 -   Researchers can create any number of versions of a partially synthetic or fully synthetic dataset. Each version of the dataset is called an **implicate**. These can also be referred to as replicates or simply "synthetic datasets"
 
@@ -843,7 +852,7 @@ To follow along, if you have not already you should **sign up for an Rstudio Clo
 
 ![](images/allegheny_county_rstudio_space.png){width="209"}
 
-You can find Intro to R and Rstudio resources [here](https://rstudio.cloud/learn/primers) if you're unfamiliar with R. There will also be support for Python if you wish to use that. But again, all the code example are optional and to be done on your own time. We will not be going over them in these trainings!
+You can find Intro to R and Rstudio resources [here](https://rstudio.cloud/learn/primers) if you're unfamiliar with R. There will also be support for Python if you wish to use that. But again, all the code examples are optional and to be done on your own time. We will not be going over them in these trainings!
 
 <br>
 
@@ -936,9 +945,9 @@ starwars_synthetic <- starwars_synthetic %>%
 
 <br> <br>
 
-# Optional HW
+# Feedback and (Optional) Homework
 
-You can access the optional HW [here](https://forms.office.com/r/nE5MgQ48cD). We appreciate your feedback!
+You can access the feedback form, along with optional homework questions to test your understanding, [here](https://forms.office.com/r/nE5MgQ48cD). We appreciate your feedback!
 
 <br> <br>
 

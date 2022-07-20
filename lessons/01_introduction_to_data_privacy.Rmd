@@ -36,7 +36,7 @@ knitr::include_graphics(here::here("www", "images", "urban-institute-logo.png"))
 
 # Lesson 1: Intro to Data Privacy and Data Synthesis
 
-#### March 15, 2022
+#### July 13, 2022
 
 ```{r setup}
 options(scipen = 999)

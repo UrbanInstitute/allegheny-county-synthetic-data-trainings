@@ -36,7 +36,7 @@ knitr::include_graphics(here::here("www", "images", "urban-institute-logo.png"))
 
 # Lesson 1: Intro to Data Privacy and Data Synthesis
 
-#### March 15, 2022
+#### July 13, 2022
 
 ```{r setup}
 options(scipen = 999)
@@ -513,7 +513,7 @@ If you want to follow along with the optional code exercises starting next week,
 
 ![](images/allegheny_county_rstudio_space.png){width="209"}
 
-You can find Intro to R and Rstudio resources [here](https://rstudio.cloud/learn/primers) if you're unfamiliar with R. There will also be support for Python if you wish to use that. But again, all the code example are optional and to be done on your own time. We will not be going over them in these trainings!
+You can find Intro to R and Rstudio resources [here](https://rstudio.cloud/learn/primers) if you're unfamiliar with R. There will also be support for Python if you wish to use that. But again, all the code examples are optional and to be done on your own time. We will not be going over them in these trainings!
 
 <br>
 

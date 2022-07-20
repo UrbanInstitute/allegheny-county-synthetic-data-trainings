@@ -1,12 +1,12 @@
 ---
-title: "Lesson 2: Synthetic Data Methods and Case Studies"
+title: "Lesson 2: Synthetic Data Methods"
 author: ""
-date: "March 29, 2022"
+date: "July 20, 2022"
 output:
   html_document:
     number_sections: false
     self_contained: TRUE
-    code_folding: show
+    code_folding: hide
     toc: TRUE
     toc_float: TRUE
     css: !expr here::here("www", "web_report.css")
@@ -34,6 +34,15 @@ knitr::include_graphics(here::here('www', 'images', 'urban-institute-logo.png'))
 
 ```
 
+
+# Logistics and Reminders
+
+
+- Access a recording of Lesson 1 [here](https://urbanorg.box.com/s/ug9ud42jt8xipdy5ys49npefim07lq9o).
+
+- Email Maddie Pickens (mpickens@urban.org) for lesson HTML files.
+
+- To follow along with optional code exercises, see "Exercise 3 (Optional)" for instructions on setting up an RStudio Cloud account and accessing the coding exercises (available in R and Python). This week's lesson contains dropdowns with R code for reference (click boxes labeled "Code" to view). We will not discuss these exercises or the R code in class.
 
 
 # Review of Synthetic Data
@@ -339,7 +348,7 @@ table %>%
 
 <br> <br>
 
-# Implicates (Bonus)
+# Implicates
 
 -   Researchers can create any number of versions of a partially synthetic or fully synthetic dataset. Each version of the dataset is called an **implicate**. These can also be referred to as replicates or simply "synthetic datasets"
 
@@ -545,7 +554,11 @@ bill_length_synthetic_method1 <- predict(
 
 # add predictions to synthetic data as bill_length
 penguins_synthetic_method1 <- penguins_synthetic %>%
-  mutate(bill_length_mm = bill_length_synthetic_method1)
+  mutate(bill_length_mm = round(bill_length_synthetic_method1, 2))
+
+penguins_synthetic_method1 %>% 
+  head() %>% 
+  create_table()
 ```
 
 
@@ -611,7 +624,11 @@ bill_length_synthetic_method2 <- rnorm(
 
 # add predictions to synthetic data as bill_length
 penguins_synthetic_method2 <- penguins_synthetic %>%
-  mutate(bill_length_mm = bill_length_synthetic_method2)
+  mutate(bill_length_mm = round(bill_length_synthetic_method2, 2))
+
+penguins_synthetic_method2 %>% 
+  head() %>% 
+  create_table()
 ```
 
 Now, we again compare the univariate distributions of the confidential data and the synthetic data we generated with this second method.
@@ -825,7 +842,19 @@ compare_penguins %>%
 
 <br> <br>
 
-# Exercise 3
+# Exercise 3 (Optional)
+
+<font color="#55b748">**Setup**</font>
+
+Because the following exercise involves coding, it is optional and to be done on your own time.
+
+To follow along, if you have not already you should **sign up for an Rstudio Cloud account and join the `Allegheny-count-data-privacy-trainings` space** so that you can follow along with our code exercises. You can do that by using [this link](https://rstudio.cloud/spaces/261189/join?access_code=dYVkt3WqVcoLNsJVuDk_ycR1hJaXZEUafvygUuCU){.uri}. You will know you've successfully joined the class space when you see the following in the top left of your Rstudio Cloud account:
+
+![](images/allegheny_county_rstudio_space.png){width="209"}
+
+You can find Intro to R and Rstudio resources [here](https://rstudio.cloud/learn/primers) if you're unfamiliar with R. There will also be support for Python if you wish to use that. But again, all the code examples are optional and to be done on your own time. We will not be going over them in these trainings!
+
+<br>
 
 For this exercise, we will use the `starwars` dataset from the `dplyr` package. We will practice sequentially synthesizing a binary variable (`gender`) and a numeric variable (`height`).
 
@@ -916,9 +945,9 @@ starwars_synthetic <- starwars_synthetic %>%
 
 <br> <br>
 
-# Optional HW
+# Feedback and (Optional) Homework
 
-You can access the optional HW [here](https://forms.office.com/r/nE5MgQ48cD). We appreciate your feedback!
+You can access the feedback form, along with optional homework questions to test your understanding, [here](https://forms.office.com/r/nE5MgQ48cD). We appreciate your feedback!
 
 <br> <br>
 

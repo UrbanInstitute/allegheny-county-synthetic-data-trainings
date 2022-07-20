@@ -37,7 +37,7 @@ knitr::include_graphics(here::here("www", "images", "urban-institute-logo.png"))
 
 # Introduction to Synthetic Data
 
-This 3-course training series will provide an overview of data privacy and synthetic data methods with the goal of protectng privacy while maintaining data utility. These trainings will cover the theory and concepts behind synthetic data and equip you with tools to apply these data privacy techniques to datasets. Specifically:
+This 3-course training series will provide an overview of data privacy and synthetic data methods with the goal of protecting privacy while maintaining data utility. These trainings will cover the theory and concepts behind synthetic data and equip you with tools to apply these data privacy techniques to datasets. Specifically:
 
 - Week 1 will serve as an overview of data privacy concepts and techniques, 
 - Week 2 will cover synthetic data creation and use, and
@@ -66,4 +66,14 @@ This course assumes knowledge of general statistical concepts such as summary st
 |:---------------------------------------------------------------------------|
 | [Day 1: Intro to Data Privacy and Data Synthesis](https://UrbanInstitute.github.io/allegheny-county-synthetic-data-trainings/lessons/01_introduction_to_data_privacy)                            |
 | [Day 2: Synthetic Data Methods](https://UrbanInstitute.github.io/allegheny-county-synthetic-data-trainings/lessons/02_synthetic_data_methods)                                    |
+| [Day 3: Disclosure Risk and Utility Metrics and more Case Studies]()                  |
+
+<br>
+
+# Lesson Recordings
+
+|                                                                            |
+|:---------------------------------------------------------------------------|
+| [Day 1: Intro to Data Privacy and Data Synthesis](https://urbanorg.box.com/s/ug9ud42jt8xipdy5ys49npefim07lq9o)                            |
+| [Day 2: Synthetic Data Methods]()                                    |
 | [Day 3: Disclosure Risk and Utility Metrics and more Case Studies]()                  |

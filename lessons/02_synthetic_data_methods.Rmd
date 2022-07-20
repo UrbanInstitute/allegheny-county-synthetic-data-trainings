@@ -1,5 +1,5 @@
 ---
-title: "Lesson 2: Synthetic Data Methods and Case Studies"
+title: "Lesson 2: Synthetic Data Methods"
 author: ""
 date: "July 20, 2022"
 output:

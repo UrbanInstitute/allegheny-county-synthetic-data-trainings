@@ -65,5 +65,5 @@ This course assumes knowledge of general statistical concepts such as summary st
 |                                                                            |
 |:---------------------------------------------------------------------------|
 | [Day 1: Intro to Data Privacy and Data Synthesis](https://UrbanInstitute.github.io/allegheny-county-synthetic-data-trainings/lessons/01_introduction_to_data_privacy)                            |
-| [Day 2: Synthetic Data Methods and Case Studies](https://UrbanInstitute.github.io/allegheny-county-synthetic-data-trainings/lessons/02_synthetic_data_methods)                                    |
+| [Day 2: Synthetic Data Methods](https://UrbanInstitute.github.io/allegheny-county-synthetic-data-trainings/lessons/02_synthetic_data_methods)                                    |
 | [Day 3: Disclosure Risk and Utility Metrics and more Case Studies]()                  |

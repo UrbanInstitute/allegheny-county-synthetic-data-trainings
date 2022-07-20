@@ -506,6 +506,9 @@ sex_synthetic <- sample(
 Our new `sex_synthetic` variable will form the foundation of our synthesized data.
 
 ```{r}
+# set a seed so pseudo-random processes are reproducible
+set.seed(20220301)
+
 # use vector to generate synthetic gender column
 penguins_synthetic <- tibble(
   sex = sex_synthetic
@@ -555,7 +558,7 @@ bill_length_synthetic_method1 <- predict(
 
 # add predictions to synthetic data as bill_length
 penguins_synthetic_method1 <- penguins_synthetic %>%
-  mutate(bill_length_mm = round(bill_length_synthetic_method1, 2))
+  mutate(bill_length_mm = bill_length_synthetic_method1)
 
 penguins_synthetic_method1 %>% 
   head() %>% 
@@ -600,7 +603,7 @@ penguins_synthetic_method1 %>%
 <br>
 
 
-We know from our regression analysis output from above that the intercept ($\beta_0$) is 42.1 and the coefficient for a male penguin ($\beta_1$) is 3.8. Therefore, if the penguin is male, we have a predicted value ($\hat{y}$) of `(42.1 + 3.8 = )` 45.9. If the penguin is female, our predicted value ($\hat{y}$) is only the intercept, 42.1. 
+We know from our regression analysis output from above that the intercept ($\beta_0$) is 37.3 and the coefficient for a male penguin ($\beta_1$) is 3.1. Therefore, if the penguin is male, we have a predicted value ($\hat{y}$) of `(37.3 + 3.1 = )` 40.4. If the penguin is female, our predicted value ($\hat{y}$) is only the intercept, 37.3. 
 
 Because `sex` will only take two values, our synthetic `bill_length_mm` also only takes two values. The model fit limits the variation that is possible, making our synthetic variable significantly less useful.
 
@@ -625,7 +628,7 @@ bill_length_synthetic_method2 <- rnorm(
 
 # add predictions to synthetic data as bill_length
 penguins_synthetic_method2 <- penguins_synthetic %>%
-  mutate(bill_length_mm = round(bill_length_synthetic_method2, 2))
+  mutate(bill_length_mm = bill_length_synthetic_method2)
 
 penguins_synthetic_method2 %>% 
   head() %>% 

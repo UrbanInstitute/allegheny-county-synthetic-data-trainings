@@ -70,7 +70,7 @@ This course assumes some knowledge of general statistical concepts such as summa
 |:---------------------------------------------------------------------------|
 | [Day 1: Intro to Data Privacy and Data Synthesis](https://UrbanInstitute.github.io/allegheny-county-synthetic-data-trainings/lessons/01_introduction_to_data_privacy)                            |
 | [Day 2: Synthetic Data Methods](https://UrbanInstitute.github.io/allegheny-county-synthetic-data-trainings/lessons/02_synthetic_data_methods)                                    |
-| [Day 3: Disclosure Risk and Utility Metrics and more Case Studies]()                  |
+| [Day 3: Disclosure Risk and Utility Metrics and more Case Studies](https://UrbanInstitute.github.io/allegheny-county-synthetic-data-trainings/lessons/03_disclosure_risk_utility_metrics)                  |
 
 <br>
 
@@ -79,5 +79,5 @@ This course assumes some knowledge of general statistical concepts such as summa
 |                                                                            |
 |:---------------------------------------------------------------------------|
 | [Day 1: Intro to Data Privacy and Data Synthesis](https://urbanorg.box.com/s/ug9ud42jt8xipdy5ys49npefim07lq9o)                            |
-| [Day 2: Synthetic Data Methods]()                                    |
+| [Day 2: Synthetic Data Methods](https://urbanorg.box.com/s/4kuyct86pocr5p1dpvwan20d3jcrsbm5)                                    |
 | [Day 3: Disclosure Risk and Utility Metrics and more Case Studies]()                  |

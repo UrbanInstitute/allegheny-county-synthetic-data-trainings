@@ -6,7 +6,7 @@ output:
   html_document:
     number_sections: false
     self_contained: TRUE
-    code_folding: show  
+    code_folding: hide  
     toc: TRUE
     toc_float: TRUE
     css: !expr here::here("www", "web_report.css")
@@ -14,6 +14,13 @@ editor_options:
   chunk_output_type: console
 bibliography: references.bib
 ---
+
+```{r rmarkdown-setup, echo = FALSE}
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+
+
+```
 
 ```{=html}
 <style>
@@ -33,12 +40,7 @@ knitr::include_graphics(here::here('www', 'images', 'urban-institute-logo.png'))
 
 #### April 12, 2022
 
-```{r rmarkdown-setup, echo = FALSE}
-knitr::opts_chunk$set(warning = FALSE)
-knitr::opts_chunk$set(message = FALSE)
 
-
-```
 
 ```{r setup}
 options(scipen = 999)

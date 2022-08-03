@@ -81,7 +81,7 @@ This course assumes some knowledge of general statistical concepts such as summa
 |:---------------------------------------------------------------------------|
 | [Day 1: Intro to Data Privacy and Data Synthesis](https://urbanorg.box.com/s/ug9ud42jt8xipdy5ys49npefim07lq9o)                            |
 | [Day 2: Synthetic Data Methods](https://urbanorg.box.com/s/4kuyct86pocr5p1dpvwan20d3jcrsbm5)                                    |
-| [Day 3: Disclosure Risk and Utility Metrics and more Case Studies](https://urbanorg.app.box.com/file/992311087170)                  |
+| [Day 3: Disclosure Risk and Utility Metrics and more Case Studies](https://urbanorg.box.com/s/rogui6nc2j1s2zbtubnpf5m4d8nlhzik)                  |
 
 Unfortunately our Day 3 recording was not saved properly. So we have linked a recording from another training session we gave with mostly identical content. 
 

@@ -1,4 +1,3 @@
-# import packages we need
 import pandas as pd
 import seaborn as sns 
 import numpy as np
@@ -8,16 +7,16 @@ from scipy import stats
 import math
 import statsmodels.api as sm
 
+# ---- Setup -----
 
-
-# Setup: read in conf and synthetic data for exercise
+# Read in conf and synthetic data for exercise
 conf_data = pd.read_csv("data/lesson_03_conf_data.csv")
 synth_data = pd.read_csv("data/lesson_03_synth_data.csv")
 
 
 # ---------- Exercise 1 ----------
 
-# Question 1
+## Question 1
 conf_data_correlations = ###.corr()
 synth_data_correlations = ###.corr()
 

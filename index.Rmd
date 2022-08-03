@@ -87,29 +87,7 @@ Unfortunately our Day 3 recording was not saved properly. So we have linked a re
 
 <br>
 
-# Overview of Files
-
-All the lesson HTML files linked above were created in R Markdown and can be found in the lessons/ folder.This repo also has some follow along code templates and code solutions fo each weeks lesson. Below is an overview of all the folders in this repo:
-
-```
-.
-├── README.md
-├── bea-data-privacy-trainings.Rproj
-├── solutions/ # Solutions to all code in lessons_follow_along_code/ folder
-├── data/ # Data used in lessons and follow along code
-├── lessons/ # Rmds used to create the lesson pages
-│   ├── 02_synthetic_data_methods.R
-│   ├── 02_synthetic_data_methods.py
-│   ├── 03_utility_disclosure_metrics.R
-│   └── 03_utility_disclosure_metrics.py
-├── lessons_follow_along_code/ # Follow along code templates for each lesson in R and Python
-└── www/ # images and housekeeping stuff used in lessons
-```
-
-
-<br>
-
-## Code Requirements
+# Code Requirements
 
 In order to run the R scripts in `lessons_follow_along_code`, you will need the following R packages installed:
   

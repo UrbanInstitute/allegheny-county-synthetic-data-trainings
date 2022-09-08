@@ -252,7 +252,7 @@ create_table <- function(data_df,
 
 -   There is often a tension between privacy and utility of the data, known in the literature as the **privacy-utility trade-off**.
 
-    -   **Data utility**: How useful or accurate the data are for research and analysis (aka data quality/accuracy/usefulness).
+    -   **Data utility**: How practically useful or accurate to the data are for research and analysis purposes (aka data quality/accuracy/usefulness).
 
     -   Generally higher utility = more privacy risks and vice versa.
 
@@ -264,11 +264,11 @@ create_table <- function(data_df,
 
 -   In addition there are many version of the data we should define:
 
-    -   **Original dataset** - uncleaned version (raw census microdata).
+    -   **Original dataset:** the uncleaned, unprotected version of the data, such as the raw census microdata, which are never publicly released.
 
-    -   **Confidential dataset** (aka gold standard/actual data) - cleaned version (cleaned census microdata).
+    -   **Confidential dataset** (aka gold standard/actual data): the cleaned version (or edited for inaccuracies or inconsistencies) of the data that is often referred to as the gold standard or actual data for analysis. For example, the Census Edited File that is the final confidential data for the 2020 Census. This dataset is never publicly released but may be made available to others who are sworn to protect confidentiality and who are provided access in a secure environment, such as a Federal Statistical Research Data Center.
 
-    -   **Public dataset** - publicly released version (Census' public tables/datasets).
+    -   **Public dataset:** the publicly released version of the confidential data, such as the US Census Bureau’s public tables and datasets.
 
 <br>
 
@@ -278,9 +278,9 @@ create_table <- function(data_df,
 
 -   Data users have traditionally gotten access to data via:
 
-    a)  direct access to the confidential data if they are trusted users (e.g., Census Research Data Centers).
+    a)  direct access to the confidential data if they are trusted users (e.g., obtaining Special Sworn Status to use the Federal Statistical Research Data Centers).
 
-    b)  access to the public data/statistics (microdata, summary tables, or statistics) produced by data maintainers. This is how most people access the data, and what we'll focus on.
+    b)  access to the public data/statistics (e.g., microdata, summary tables, or statistics) produced by data maintainers. This is how most people access the data, and what we'll focus on.
 
 -   Data maintainers have relied on Statistical Disclosure Control (SDC) methods to preserve data confidentiality when releasing public data.
 

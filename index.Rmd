@@ -43,6 +43,8 @@ This 3-course training series will provide an overview of data privacy and synth
 - Week 2 will cover synthetic data creation and use, and
 - Week 3 will cover evaluating synthetic data using key privacy and utility metrics.
 
+**Last Updated:** 09/08/2022
+
 <br>
 
 # Motivation
